@@ -33,14 +33,14 @@ class MCTS
 		void AddEdge(int u, int v);
 
 		//State in MCTS methods:
-		State BestChild(State u);
-		bool isTerminal(State u);
-		State Expand(State u);
+		State BestChild(State &u);
+		bool isTerminal(State &u);
+		State Expand(State &u);
 
 		//MCTS metods
 		MCTS(int n);
-		int Build(State u);
-		int Simulation(State u);
+		int Build(State &u);
+		int Simulation(State &u);
 		void Process();
 };
 
