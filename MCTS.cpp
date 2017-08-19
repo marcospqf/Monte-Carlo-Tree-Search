@@ -74,6 +74,9 @@ int MCTS::Build(State u){
 	u.nvisited++;
 	if(isTerminal(u)){
 		State Next= Expand(u);
+		if(tree_search.size()<=sz)
+			tree_search.resize(2*sz);
+		tree_search[u.idx].push_back(Next);
 		Next.nvisited++;
 		int benefit=Simulation(u);
 		Next.reward= max(Next.reward, benefit);
@@ -92,6 +95,8 @@ void MCTS::Process()
 	int ok=1;
 	while(ok>0){
 		ok=Build(root);
+		cout<<"Found click "<<ok<<endl;
+		cout<<"Maximal click "<<root.reward<<endl;
 	}
 }
 
