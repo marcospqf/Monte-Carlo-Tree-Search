@@ -102,7 +102,7 @@ ll Adam_Sendler()
 }
 int main()
 {
-	sc2(n,k);
+	sc(n);
 	for(int i=0;i<n;i++){
 		g[i]|=(1ll<<i);
 		for(int j=0;j<n;j++){

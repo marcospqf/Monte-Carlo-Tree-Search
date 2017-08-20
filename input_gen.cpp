@@ -39,8 +39,8 @@ int g[40][40];
 int main()
 {
 	srand(time(NULL));
-	cout<<40<<" "<<"40"<<endl;
 	int n=40;
+	cout<<n<<endl;
 	for(int i=0;i<n;i++){
 		for(int j=0;j<n;j++){
 			int x=rand()%2;
