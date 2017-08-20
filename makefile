@@ -1,8 +1,8 @@
-main: main.o MCTS.o
-	g++ -std=c++11 main.o MCTS.o -o exe
-main.o: main.cpp 
-	g++ -std=c++11 -g -c main.cpp
-MCTS.o:	MCTS.cpp MCTS.hpp
-	g++ -std=c++11 -g -c MCTS.cpp
+main: build/main.o build/MCTS.o
+	g++ -std=c++11 build/main.o build/MCTS.o -o exe
+build/main.o: source/main.cpp 
+	g++ -std=c++11 -g -c source/main.cpp -o build/main.o
+build/MCTS.o:	source/MCTS.cpp source/MCTS.hpp
+	g++ -std=c++11 -g -c source/MCTS.cpp -o build/MCTS.o
 clean:
-	rm *.o
+	rm ./build/*.o
