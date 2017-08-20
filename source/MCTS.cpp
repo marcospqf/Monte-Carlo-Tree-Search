@@ -21,9 +21,9 @@ double State::GetUct(State* u, int nvis){
 MCTS::MCTS(int n)
 {
 	graph.clear();
-	graph.resize(n+1);
+	graph.resize(n);
 	root= new State();
-	for(int i=1;i<=n;i++) root->commonNeigh.push_back(i);
+	for(int i=0;i<n;i++) root->commonNeigh.push_back(i);
 }
 
 
@@ -39,7 +39,7 @@ bool MCTS::isTerminal(State* &u){
 State* MCTS::BestChild(State* &u){
 	int nvisited = u->nvisited;
 	double maxi=-INF;
-	State* best=NULL;
+	State* best=nullptr;
 	if(u->son.size()==0){
 		return best;
 	}
@@ -80,7 +80,7 @@ int MCTS::Build(State* &u){
 		return benefit;
 	}
 	State *Next= BestChild(u);
-	if(Next==NULL) return -1;
+	if(Next==nullptr) return -1;
 	int benefit=Build(Next);
 	u->reward= max(u->reward, benefit);
 	return benefit;	

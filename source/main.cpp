@@ -6,10 +6,14 @@ int main()
 	int n,m;
 	cin>>n>>m;
 	MCTS test(n);
-	for(int i=0;i<m;i++){
-		int u,v;
-		cin>>u>>v;
-		test.AddEdge(u,v);
+	for(int i=0;i<n;i++){
+		for(int j=0;j<n;j++){
+			int x;
+			cin>>x;
+			if(i>j and x){
+				test.AddEdge(i,j);
+			}
+		}
 	}
 	cout<<"MAXIMUM CLICK: "<<test.Process()<<endl;
 	test.delete_all();
